@@ -3,7 +3,6 @@ package com.yang;
 import com.yang.domain.User;
 import com.yang.domain.UserRepository;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,6 +34,12 @@ public class DemoApplicationTests {
 
         User u2 = userRepository.findByName("AAA");
         System.out.println("第二次查询：" + u2.getAge());
+        u1.setAge(20);
+        userRepository.save(u1);
+        User u3 = userRepository.findByName("AAA");
+        System.out.println("第三次查询：" + u3.getAge());
+        User u4 = userRepository.findByName("AAA");
+        System.out.println("第三次查询：" + u4.getAge());
     }
 
 
